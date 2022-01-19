@@ -16,6 +16,8 @@ For this example "bcacb"
   Step 5: 'b' is smaller than 'c", howerver, there is no 'c' after 'b'. We can't pop 'c', add 'b'. current string: "acb"
 So the result is 'acb'
 
+Refer to: https://github.com/SwarupYonX/Questions/blob/main/Image-Remove%20Duplicate%20Letters.png
+
 C++ Code:
 
     class Solution {
