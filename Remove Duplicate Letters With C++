@@ -1,0 +1,44 @@
+In order to make the result "the smallest in lexicographical order", a character should appear before others character bigger than it if possilbe.
+
+  If a char A is already added, let's check the next one in string s.
+  If the char is not added, we need to do the following steps and add it.
+      If the last char B in the currently result is bigger than A and there are still B in string s after A, we can remove B.
+      Let's keep doing this until the current reult is empty or the last char is smaller than A.
+      We can add A now.
+  Let's keep doing this till the end of the string
+  
+For this example "bcacb"
+
+  Step 1: the stack is empty, add 'b'. current string: "b"
+  Step 2: 'c' is bigger than 'b', add it to stack. current string: "bc"
+  Step 3: 'a' is smaller than 'c', there is still 'c' after this 'a'. so pop it. The same for 'b' as well. So pop it. current string: "a"
+  Step 4: 'c' is bigger than 'a', add it to stack. current string: "ac"
+  Step 5: 'b' is smaller than 'c", howerver, there is no 'c' after 'b'. We can't pop 'c', add 'b'. current string: "acb"
+So the result is 'acb'
+
+C++ Code:
+
+    class Solution {
+    public:
+        string removeDuplicateLetters(string s) {
+            string res="";
+            int lastPos[26] = {}; // the last position of the char
+            bool added[26] = {};  // if the char is added to the result
+            for (int i = 0; i < s.size(); i++)
+            {
+                lastPos[s[i] - 'a'] = i;
+            }
+            for (int i = 0; i < s.size(); i++)
+            {
+                if (added[s[i] - 'a']) continue;
+                while ( !res.empty() && res.back() > s[i] && lastPos[res.back() - 'a'] > i)
+                {
+                    added[res.back() - 'a'] = false;
+                    res.pop_back();
+                }
+                res.push_back(s[i]);
+                added[s[i] - 'a'] = true;
+            }
+            return res;
+        }
+    };
