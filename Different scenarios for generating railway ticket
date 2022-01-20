@@ -1,0 +1,134 @@
+Railway Reservation System is software that handles the entire booking data of the Railway. 
+It is fully based on the concept of reserving train tickets for various destinations.
+Different scenarios for generating railway tickets is the main feature of this project.
+
+Book Ticket:
+  In this section, passengers will be able to book the tickets.
+  The software will ask the passenger to enter the following information:
+            No of tickets which passenger wants to book.
+            Train number.
+            Date on which passenger want to travel.
+            Name of the passengers.
+            Contact Number of each passenger.
+  The software will ask for the above details for each and every passenger. Suppose passengers enter no of tickets as 2 then the software’ll ask for the above details of two         passengers. After entering the details, the software will automatically allocate the seat number to the passenger.
+  
+C++ code for Book Ticket Function
+
+//---------------------------------------book ticket function-----------------------------------------------
+                void bookticket()
+                {
+                  int c,j,n,i,found=-1;
+                  char v,train_number[10];
+                  system ("cls");
+                  aread();
+                  printf("\n\n\t\t\t============================================");
+                  printf("\n\t\t\t**********RAILWAY RESERVATION SYSTEM**********\n");
+                  printf("\t\t\t==================================================");
+                  printf("\n\n\t\t\thow many ticket do you want to buy: ");
+                  scanf("%d",&n);
+                  for(j=u;j<u+n;j++)
+                  {
+                  printf("\n\n\t\t\tEnter train number: ");
+                  scanf("%s", book[j].train_number);
+                  for(i=0;i<k;i++)
+                  {
+                  if(strcmp(book[j].train_number,add[i].train_number)==0)
+                  {
+                  if(add[i].seat==0)
+                  {
+                    printf("\n\n\t\t\tnot available seat");
+
+                    getch();
+                    system("cls");
+                    main();
+                  }
+                  else
+                  {
+                      found=1;
+                    printf("\n\t\t\tenter book %d no ticket: ",j+1);
+                    printf("\n\t\t\tenter date: ");
+                    scanf("%s",book[j].date);
+                    printf("\n\t\t\tenter your name: ");
+                    scanf("%s",book[j].name);
+                    printf("\n\t\t\tenter your phone number: ");
+                    scanf("%s",book[j].phone);
+                    printf("\n\t\t\tseat number : %d",add[i].seat );
+                    book[j].seat=add[i].seat;
+                    bookticket_write();
+                    add[i].seat--;
+                    awrite();
+                    }
+                  }
+                }
+                  if(found==-1)
+                  {
+                    printf("\n\n\t\t\ttrain not found!!!");
+                    getch();
+                    system("cls");
+                    main();
+                  }
+
+                  }
+                    u=j;
+                    bookticket_write();
+                    printf("\n\n\t\t\tenter '1' for main menu & press any key to exit: ");
+                    scanf("%d",&c);
+                      if(c==1)
+                      {
+                        system("cls");
+                        main();
+                      }
+                      if(c!=1)
+                      {
+                        exit;
+                      }			
+                }
+  
+Cancel Ticket:
+  If the passenger’s mind changed and he wants to cancel the ticket urgently then the software also has the facility of canceling the ticket on the spot.
+  The ticket will be canceled only on the basis of the contact number. If the passenger’s contact number matches with the number which he entered while booking the ticket.
+  The success message will appear after the cancellation of the ticket.
+  
+C++ code for Cancel Ticket Function:
+
+//---------------------------------------cancel ticket function---------------------------------------------
+                void cancelticket()
+                {
+                  viewpassengers_read();
+                    char pnnmbr[100];
+                    int location = -1,e;
+                    printf ("\n\n\t\t\tenter phone number: ");
+                    scanf ("%s",pnnmbr);
+                    for (e=0;e<u;e++)
+                    {
+                        if (strcmp(pnnmbr,book[e].phone)==0)
+                        {
+                            location=e;
+                            break;
+                        }
+                    }
+                    if (location==-1)
+                    {
+                        printf ("\n\n\t\t\t<<<<<<<<<<<<<<Data Not Found>>>>>>>>>>>>>>>>> \n");
+                        getch();
+                        system("cls");
+                        main();
+                    }
+                    else
+                    {
+                        for (e=location;e<u;e++)
+                        {
+                            strcpy(book[e].date,book[e+1].date);
+                            strcpy(book[e].train_number,book[e+1].train_number);
+                            strcpy(book[e].name,book[e+1].name);
+                            strcpy(book[e].phone,book[e+1].phone);
+                            bookticket_write();
+                        }
+                        u--;
+                        bookticket_write();
+                        printf("\n\n\t\t\t<<<<<<<<<<<<<<<ticket cancelled successfully>>>>>>>>>>>>");
+                        getch();
+                        system("cls");
+                        main();
+                    }
+                }
