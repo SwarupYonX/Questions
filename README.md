@@ -4,4 +4,6 @@ View Information:
       The passengers did not require additional sign-in to book the train. He or she’ll be able to book the train directly.
 
 When the user chooses the option as 1 then the following screen will appear:
-https://github.com/SwarupYonX/Questions/blob/0e545db89d6c74d8534eb67fcf34e4cb424c7727/View%20Information.webp
+<p align="center">
+<img src="Questions/View Information.webp?raw=true" alt="Image not found"/>
+</p>
