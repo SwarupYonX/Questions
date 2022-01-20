@@ -3,7 +3,7 @@ View Information:
 
       The passengers did not require additional sign-in to book the train. He or she’ll be able to book the train directly.
 
-When the user chooses the option as 1 then the following screen will appear:
+#When the user chooses the option as 1 then the following screen will appear:
 <p align="center">
-<img src="Questions/View Information.webp?raw=true" alt="Image not found"/>
+<img src="View Information.webp?raw=true" alt="Image not found"/>
 </p>
