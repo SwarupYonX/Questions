@@ -1,8 +1,11 @@
 Railway Reservation System is software that handles the entire booking data of the Railway. 
 It is fully based on the concept of reserving train tickets for various destinations.
 Different scenarios for generating railway tickets is the main feature of this project.
+  <p align="center">
+  <img src="View Information.webp?raw=true" alt="Image not found"/>
+  </p>
 
-Book Ticket:
+# Book Ticket:
   In this section, passengers will be able to book the tickets.
   The software will ask the passenger to enter the following information:
             No of tickets which passenger wants to book.
@@ -11,6 +14,9 @@ Book Ticket:
             Name of the passengers.
             Contact Number of each passenger.
   The software will ask for the above details for each and every passenger. Suppose passengers enter no of tickets as 2 then the software’ll ask for the above details of two         passengers. After entering the details, the software will automatically allocate the seat number to the passenger.
+  <p align="center">
+  <img src="View Information.webp?raw=true" alt="Image not found"/>
+  </p>
   
 C++ code for Book Ticket Function
 
